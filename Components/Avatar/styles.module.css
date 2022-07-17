@@ -1,0 +1,14 @@
+.container{
+    display: flex;
+    align-items: center;
+
+}
+.container img{
+    border-radius: 1vw;
+    border: 2px solid #0099ff;
+
+}
+.container h1{
+    margin-left: 10px;
+}
+
