@@ -49,6 +49,7 @@ export default function home(){
                               return(
                                 <Devit 
                                 key={tw.id}
+                                id={tw.id}
                                 src={tw.dev.avatar}
                                 username={tw.dev.userName}
                                 message={tw.dev.content}
@@ -66,10 +67,10 @@ export default function home(){
                         <nav>
                                 
                                     
-                                    <Link href="/home"><a><Home width="32" height="32" stroke="#09f"/></a></Link>
-                                    <Link href="/devits"><a><Create width="32" height="32" stroke="#09f"/></a></Link>
-                                    <Link href="/"><a><Search width="32" height="32" stroke="#09f"/></a></Link>
-                                    <Link href="/"><a><Reuse width="32" height="32" stroke="#09f"/></a></Link>
+                                    <Link href="/home"><a><Home width="28" height="28" stroke="#09f"/></a></Link>
+                                    <Link href="/devits"><a><Create width="28" height="28" stroke="#09f"/></a></Link>
+                                    <Link href="/"><a><Search width="28" height="28" stroke="#09f"/></a></Link>
+                                    <Link href="/"><a><Reuse width="22" height="22" stroke="#09f"/></a></Link>
 
                                     
                                 

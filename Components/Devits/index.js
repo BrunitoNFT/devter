@@ -1,8 +1,8 @@
 import { useState,useEffect } from "react" 
 import useTimeAgo from "../../hooks/useTimeAgo"
+import Link from "next/link"
 
-
-export default function Devit({src,message,username,createdAt,imgUrl}) {
+export default function Devit({src,message,username,createdAt,imgUrl,id}) {
     const timeago = useTimeAgo(createdAt)
 
     return (
@@ -18,7 +18,11 @@ export default function Devit({src,message,username,createdAt,imgUrl}) {
                     <div className="flex">
                         <h1 className="font-bold text-lg">{username}</h1>
                         <span className="ml-1"> · </span>
-                        <p className="ml-1">{timeago}</p>
+                        <Link href={`/status/[id]`} as={`/status/${id}`}>
+                            
+                                <p className="ml-1">{timeago}</p>
+                            
+                          </Link>
                     </div>
                     <footer>
                     <p className="">{message}</p>
@@ -38,6 +42,9 @@ export default function Devit({src,message,username,createdAt,imgUrl}) {
                 section{
                     padding:15px 10px;
                     border-bottom:2px solid #eee;
+                }
+                section:hover{
+                    background-color:#eee;
                 }
                 img{
                     width: 50px;
