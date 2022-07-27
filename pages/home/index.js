@@ -10,14 +10,14 @@ import {onGetTasks} from "../../firebase/client"
 
 import Loading from "../../Components/Charging/index"
 
-import Home from "../../Components/Icons/Home"
+import Homee from "../../Components/Icons/Home"
 import Create from "../../Components/Icons/Create"
 import Search from "../../Components/Icons/Search"
 import Reuse from "../../Components/Icons/Reuse"
 
 import Link from "next/link"
 
-export default function home(){
+export default function Home(){
     const user = useUser()
     const [Timeline, setTimeline] = useState([])
     const Router = useRouter()
@@ -67,7 +67,7 @@ export default function home(){
                         <nav>
                                 
                                     
-                                    <Link href="/home"><a><Home width="28" height="28" stroke="#09f"/></a></Link>
+                                    <Link href="/home"><a><Homee width="28" height="28" stroke="#09f"/></a></Link>
                                     <Link href="/devits"><a><Create width="28" height="28" stroke="#09f"/></a></Link>
                                     <Link href="/"><a><Search width="28" height="28" stroke="#09f"/></a></Link>
                                     <Link href="/"><a><Reuse width="22" height="22" stroke="#09f"/></a></Link>
