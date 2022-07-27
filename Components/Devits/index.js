@@ -10,36 +10,43 @@ export default function Devit({src,message,username,createdAt,imgUrl,id}) {
             <section >
         <Link href={`/status/[id]`} as={`/status/${id}`}>
                 <main className="flex z-0">
-                <header className="w-1/5 relative">
-                    <img src={src} alt="Perfil" className="z-10 cursor-pointer"/>
-                    <p></p>
-                </header>
-                <div className="flex-col w-4/5">
-                    
-                    <div className="flex">
-                    <Link href={`https://www.youtube.com/`}>
-                        <h1 className="font-bold text-lg z-10 cursor-pointer">{username}</h1>
-                    </Link>
-                        <span className="ml-1"> · </span>
-                        <p className="ml-1">{timeago}</p>
+                        <header className="">
+                            <img src={src} alt="Perfil" className="z-10 cursor-pointer"/>
+                            <p></p>
+                        </header>
+
+                        <div className="agorasi">
                             
-                          
-                    </div>
-                    <footer>
-                    <p className="">{message}</p>
-                    {imgUrl && <img className="img-devit z-10 cursor-pointer" src={imgUrl}/>}
-                    </footer>
-                </div>
+                            <div className="flex">
+                            <Link href={`https://www.youtube.com/`}>
+                                <h1 className="font-bold text-lg z-10 cursor-pointer">{username}</h1>
+                            </Link>
+                                <span className="ml-1"> · </span>
+                                <p className="ml-1">{timeago}</p>
+                                    
+                                
+                            </div>
+                            <footer>
+                            <p className="">{message}</p>
+                            {imgUrl && <img className="img-devit z-10 cursor-pointer" src={imgUrl}/>}
+                            </footer>
+                        </div>
                 </main>
             </Link>
             </section>
 
             <style jsx>{`
-                
-                header{
+                .agorasi{
+                    width:80%;
                     display:flex;
                     flex-direction:column;
+                }
+                header{
+                    display:flex;
+                    position:relative;
+                    flex-direction:column;
                     align-items:center;
+                    width:20%;
                     
                 }
                 section{
@@ -56,10 +63,7 @@ export default function Devit({src,message,username,createdAt,imgUrl,id}) {
                     border-radius:100vw;
                     border:2px solid #0099ff;
                 }
-                div{
-                    margin-top:3px;
-                    height:50%;
-                }
+                
                 .img-devit{
                     margin-top:15px;
                     width:100%;
