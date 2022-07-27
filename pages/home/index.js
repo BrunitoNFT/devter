@@ -98,7 +98,7 @@ export default function Home(){
                     width:100%;
                     height:50px;
                     border-bottom:2px solid #eee;
-                    position:relative;
+                    position:sticky;
                     top:0;
                     align-items:center;
                     background-color:#ffffffaa;
