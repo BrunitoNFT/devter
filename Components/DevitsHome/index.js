@@ -44,7 +44,7 @@ export default function Devit({src,message,likes,username,createdAt,imgUrl,id}) 
                                 
                             </div>
                             <footer>
-                            <p className="break-words w-4/5">{message}</p>
+                            <p className="contenido">{message}</p>
                             {imgUrl && <img className="img-devit z-10 cursor-pointer" src={imgUrl}/>}
                             </footer>
                             
@@ -67,6 +67,10 @@ export default function Devit({src,message,likes,username,createdAt,imgUrl,id}) 
             </section>
 
             <style jsx>{`
+                .contenido{
+                    word-wrap: break-word;
+                    width:80%;
+                }
                 .padre{
                     width:100%;
                     display:flex;
