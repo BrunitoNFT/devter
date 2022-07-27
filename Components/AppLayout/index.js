@@ -1,4 +1,3 @@
-import {colors,fonts,breakpoint} from "../../styles/theme"
 
 export default function AppLayout ({children}) {
     return (
