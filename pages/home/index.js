@@ -96,7 +96,7 @@ export default function home(){
                 header{
                     display:flex;
                     width:100%;
-                    height:6%;
+                    height:50px;
                     border-bottom:2px solid #eee;
                     position:relative;
                     top:0;
@@ -108,24 +108,29 @@ export default function home(){
                 header h1{
                     margin-left:15px;
                 }
-                section{
-                    height:88%;
-                    overflow:auto;
-                }
+                
                 
                 nav{
+                    background-color:white;
                     width:100%;
-                    height:6%;
+                    height:50px;
                     border-top:2px solid #eee;
                     display:flex;
                     align-items:center;
                     justify-content:space-around;
+                    position: absolute;
                     bottom:0;
+                    z-index:100;
                 }
                 nav a:hover{
                    background:radial-gradient(#0099ff22 15%,transparent 16%);
                     background-size:180px 180px;
                     background-position:center;
+                }
+                section{
+                    height:100%;
+                    overflow:auto;
+                    z-index:0;
                 }
                 .devitear{
                     width:50px;

@@ -7,28 +7,31 @@ export default function Devit({src,message,username,createdAt,imgUrl,id}) {
 
     return (
         <>   
-            <section className="flex">
-                
+            <section >
+        <Link href={`/status/[id]`} as={`/status/${id}`}>
+                <main className="flex z-0">
                 <header className="w-1/5 relative">
-                    <img src={src} alt="Perfil"/>
+                    <img src={src} alt="Perfil" className="z-10 cursor-pointer"/>
                     <p></p>
                 </header>
                 <div className="flex-col w-4/5">
                     
                     <div className="flex">
-                        <h1 className="font-bold text-lg">{username}</h1>
+                    <Link href={`https://www.youtube.com/`}>
+                        <h1 className="font-bold text-lg z-10 cursor-pointer">{username}</h1>
+                    </Link>
                         <span className="ml-1"> · </span>
-                        <Link href={`/status/[id]`} as={`/status/${id}`}>
+                        <p className="ml-1">{timeago}</p>
                             
-                                <p className="ml-1">{timeago}</p>
-                            
-                          </Link>
+                          
                     </div>
                     <footer>
                     <p className="">{message}</p>
-                    {imgUrl && <img className="img-devit" src={imgUrl}/>}
+                    {imgUrl && <img className="img-devit z-10 cursor-pointer" src={imgUrl}/>}
                     </footer>
                 </div>
+                </main>
+            </Link>
             </section>
 
             <style jsx>{`
@@ -42,6 +45,7 @@ export default function Devit({src,message,username,createdAt,imgUrl,id}) {
                 section{
                     padding:15px 10px;
                     border-bottom:2px solid #eee;
+                    z-index:1;
                 }
                 section:hover{
                     background-color:#eee;

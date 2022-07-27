@@ -8,13 +8,14 @@ import Button from "../../Components/Button/index"
 
 import useUser from "../../hooks/useUser"
 
-import { addDevit, uploadImage } from '../../firebase/client'
+import { addDevit, 
+  uploadImage 
+} from '../../firebase/client'
 
 import {
   Timestamp,
   fromDate
 } from "firebase/firestore";
-import { faExpeditedssl } from '@fortawesome/free-brands-svg-icons'
 
 const COMPOSE_STATES = {
   USER_NOT_KNOWN:0,
@@ -62,7 +63,9 @@ export default function ComposeDevit(){
       createdAt:Timestamp.fromDate(new Date()).seconds,
       likedCount:0,
       sharedCount:0,
-      imgUrl:imgUrl
+      imgUrl:imgUrl,
+      userID:user.uid,
+      
     }).then(() => {
        Router.push("/home")
     setTimeout(() => {
