@@ -27,10 +27,10 @@ export const generateID = () => {
   return id
 }
 
-const y = process.env.NEXT_PUBLIC_API_KEY
+
 
 const firebaseConfig = {
-  apiKey: y,
+  apiKey: "AIzaSyBaF5pa1x1sA_zXr6wUVDMJD5oe7CJouBE",
   authDomain: "devter-4d602.firebaseapp.com",
   projectId: "devter-4d602",
   storageBucket: "devter-4d602.appspot.com",
