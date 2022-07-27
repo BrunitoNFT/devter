@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 
 import Head from "next/head"
 import { useState,useEffect } from "react"
-import Devit from "../../Components/Devits"
+import Devit from "../../Components/DevitsHome"
 import useUser from "../../hooks/useUser"
 
 import {onGetTasks} from "../../firebase/client"
