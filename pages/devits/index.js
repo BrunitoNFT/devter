@@ -103,20 +103,28 @@ export default function ComposeDevit(){
 
               <title>Crear un Devit/ Devter</title>
             </Head>
+
             <header className="overflow-hidden">
               
-              <div className="volver text-black" onClick={handleVolver}>
-                <span className='dale'><FontAwesomeIcon icon={faArrowLeft} /></span>
-              </div>
+                <div className="volver text-black" onClick={handleVolver}>
+                  <span className='dale'><FontAwesomeIcon icon={faArrowLeft} /></span>
+                </div>
+
+                <div className='devit'>
+
                 <h1 className="font-black text-xl ml-3 mr-3">Add Devit</h1>
-                <footer className='font-bold'>
-                  
+                </div>
+              
+                <footer className='font-bold p-3 '>
+                      <div className='w-1/5'>
 
                       <Avatar src={user && user.photoUrl} width="40" heigth="40"/>
-                      <p className='ml-1'>{user && user.screenName}</p>
+                      </div>
+                      <p className='ml-1  w-4/5'>{user && user.screenName}</p>
                  
                 </footer>
             </header>
+
             <section >
                 <form onSubmit={handleSubmit}>
                     <textarea 
@@ -148,11 +156,23 @@ export default function ComposeDevit(){
           </>
       <style jsx>{`
         footer{
+          width:55%;
           border-left:2px solid #eee;
           padding:10px;
           display:flex;
           align-items:center;
-
+          word-break: break-word;
+        }
+        footer p {
+          overflow:hidden;
+        white-space:nowrap;
+        text-overflow: ellipsis;
+        }
+        .devit{
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          width:35%;
         }
         .img-user{
           width:30%;
@@ -210,6 +230,8 @@ export default function ComposeDevit(){
                     backdrop-filter:blur(5px);
                     z-index:10;
                 }
+
+
         `}</style>
       </>
   )

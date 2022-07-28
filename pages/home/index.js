@@ -13,7 +13,6 @@ import Loading from "../../Components/Charging/index"
 import Homee from "../../Components/Icons/Home"
 import Create from "../../Components/Icons/Create"
 import Search from "../../Components/Icons/Search"
-import Reuse from "../../Components/Icons/Reuse"
 
 import Link from "next/link"
 
@@ -67,20 +66,29 @@ export default function Home(){
                         <nav>
                                 
                                     
-                                    <Link href="/home"><a><Homee width="28" height="28" stroke="#09f"/></a></Link>
-                                    <Link href="/devits"><a><Create width="28" height="28" stroke="#09f"/></a></Link>
-                                    <Link href="/"><a><Search width="28" height="28" stroke="#09f"/></a></Link>
-                                    <Link href="/"><a><Reuse width="22" height="22" stroke="#09f"/></a></Link>
+                                    <Link href="/home"><a><Homee width="28" height="28" stroke="#000"/></a></Link>
+                                    
+                                    <Link href="/"><a><Search width="28" height="28" stroke="#000"/></a></Link>
 
                                     
                                 
                         </nav>
 
-                       {/*  <div className="devitear" onClick={handleMas}>
-                                <span className="text-white font-bold text-xl cursor-pointer">+</span>
-                        </div> */}
+                        {/* <Link href="/devits">
+                            <div className="w-10 h-10 bg-red-500"><Create width="28" height="28" stroke="#09f"/></div>
+                        </Link> */}
+
+                         <div className="devitear" >
+                                <div className="contenedordev">
+                            <Link href="/devits">
+
+                                    <Create width="28" height="28" stroke="#fff"/>
+                            </Link>
+                                </div>
+                        </div> 
                 </div>
             <style jsx>{`
+                
                         .kk{
                             display:flex;
                             justify-content:center;
@@ -122,10 +130,14 @@ export default function Home(){
                     bottom:0;
                     z-index:100;
                 }
+                nav a{
+                    transition: all .3s ease-in-out;
+                }
                 nav a:hover{
-                   background:radial-gradient(#0099ff22 15%,transparent 16%);
+                   background:radial-gradient(#00000033 15%,transparent 16%);
                     background-size:180px 180px;
                     background-position:center;
+                    border-radius:3px;
                 }
                 section{
                     height:100%;
@@ -133,26 +145,19 @@ export default function Home(){
                     z-index:0;
                 }
                 .devitear{
-                    width:50px;
-                    height:50px;
-                    background-color:red;
-                    position:sticky;
-                    bottom:10%;
-                    left:3%;
-                    border-radius:100vw;
+                    width:45px;
+                    height:45px;
+                    position:absolute;
+                    bottom:60px;
+                    right:15px;
+                    border-radius:5px;
                     background-color:black;
                     box-shadow:0 0 10px 0px;
                     transition: all .3s ease-in-out;
+                    z-index:1000;
+                    cursor:pointer;
+                    padding:8px;
 
-                }
-                .devitear span{
-                    width:100%;
-                    height:100%;
-                    display:flex;
-                    justify-content:center;
-                    align-items:center;
-                    position:relative;
-                    bottom:8%;
                 }
                 .devitear:hover{
                     transform:scale(1.1);

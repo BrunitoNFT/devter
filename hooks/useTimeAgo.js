@@ -26,7 +26,6 @@ export default function useTimeAgo (da) {
         getDateDiffs(da)
      )
 
-
     useEffect(() => {
         setInterval(() => {
           const newTimeAgo = getDateDiffs(da)
