@@ -1,5 +1,7 @@
 import { useState,useEffect } from "react" 
 import useTimeAgo from "../../hooks/useTimeAgo"
+import useNumberBeauty from "../../hooks/useNumberBeauty.js"
+
 import Link from "next/link"
 import Like from "../Icons/Like"
 import {editLikes,checkLikes} from "../../firebase/client.js"
@@ -14,6 +16,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Devit({src,message,likes,username,createdAt,imgUrl,id}) {
     const timeago = useTimeAgo(createdAt)
+    const lkk = useNumberBeauty(likes)
+
     const user = useUser()
     const [lk,setLk] = useState(null)
     const [charging,setCharging] = useState(false)
@@ -32,17 +36,18 @@ export default function Devit({src,message,likes,username,createdAt,imgUrl,id}) 
         <>   
             <section >
         <Link href={`/status/[id]`} as={`/status/${id}`}>
-            <div>
+            <div className="contenedor-link">
                         <main className="flex z-0">
-                                <header className="">
-                                    <img src={src} alt="Perfil" className="z-10 cursor-pointer"/>
-                                    <p></p>
+                                <header>
+                                    <Link href={"/home"}>
+                                        <img src={src} alt="Perfil" className=""/>
+                                    </Link>
                                 </header>
 
                                 <div className="agorasi">
                                     
                                     <div className="user">
-                                        <Link href={`/status/[id]`} as={`/status/${id}`}>
+                                        <Link href={"/home"}>
                                             <h1 className="">{username}</h1>
                                         </Link>
                                         
@@ -65,14 +70,16 @@ export default function Devit({src,message,likes,username,createdAt,imgUrl,id}) 
 
                                 <div className="interact">
                                     <div disabled={charging} className={charging?"dis all":"act all"} onClick={handleLike}>
-                                        <span className="">{likes === 0?"":likes}</span>
+                                        <span className="opacity">{likes === 0?"":lkk}</span>
+                                        <Link href="/home">
                                         <a className="">
                                             <svg height="21" viewBox="0 0 21 21" width="21" xmlns="http://www.w3.org/2000/svg"><path d="m7.24264069 2.24264069c.5-2.5 4.34314571-2.65685425 6.00000001-1 1.6034073 1.60340734 1.4999617 4.3343931 0 6l-6.00000001 6.00000001-6-6.00000001c-1.65685425-1.65685425-1.65685425-4.34314575 0-6 1.54996042-1.54996043 5.5-1.5 6 1z" fill={lk?"true":"none"} stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" transform="translate(3.257 4.257)"/></svg>
                                         </a>
+                                        </Link>
                                     </div>
-                                    <Link href=""><a><Reuse width="18" height="18" stroke="#000" fill="none"/></a></Link>
-                                    <Link href=""><a><svg height="21" viewBox="0 0 21 21" width="21" xmlns="http://www.w3.org/2000/svg"><path d="m8 13.5172414c4.418278 0 8-3.2845583 8-7.0172414 0-3.73268314-3.581722-6.5-8-6.5s-8 3.02593755-8 6.75862069c0 1.45741942.5460328 2.80709561 1.47469581 3.91098161l-.97469581 4.5803977 3.91607376-2.4472652c1.07810761.4571647 2.29544433.7145066 3.58392624.7145066z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" transform="translate(3 3)"/></svg></a></Link>
-                                    <Link href=""><a><Share width="18" height="18" stroke="#000" fill="none"/></a></Link>
+                                    <Link href="/home"><a><Reuse width="18" height="18" stroke="#000" fill="none"/></a></Link>
+                                    <Link href="/home"><a><svg height="21" viewBox="0 0 21 21" width="21" xmlns="http://www.w3.org/2000/svg"><path d="m8 13.5172414c4.418278 0 8-3.2845583 8-7.0172414 0-3.73268314-3.581722-6.5-8-6.5s-8 3.02593755-8 6.75862069c0 1.45741942.5460328 2.80709561 1.47469581 3.91098161l-.97469581 4.5803977 3.91607376-2.4472652c1.07810761.4571647 2.29544433.7145066 3.58392624.7145066z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" transform="translate(3 3)"/></svg></a></Link>
+                                    <Link href="/home"><a><Share width="18" height="18" stroke="#000" fill="none"/></a></Link>
                                 </div>
                         </div>
                 </div>
@@ -80,7 +87,12 @@ export default function Devit({src,message,likes,username,createdAt,imgUrl,id}) 
             </section>
 
             <style jsx>{`
-                
+                .opacity{
+                    opacity:0.5;
+                }
+                .contenedor-link{
+                    z-index:1;
+                }
                 .user{
                     display:flex;
                     font-weight:bold;
@@ -119,6 +131,8 @@ export default function Devit({src,message,likes,username,createdAt,imgUrl,id}) 
                     flex-direction:column;
                     align-items:center;
                     width:20%;
+                    z-index:500;
+                    cursor:pointer;
                     
                 }
                 section{

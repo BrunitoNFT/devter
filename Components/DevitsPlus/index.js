@@ -1,5 +1,8 @@
 import { useState,useEffect } from "react" 
+
 import useTimeAgo from "../../hooks/useTimeAgo"
+import useNumberBeauty from "../../hooks/useNumberBeauty.js"
+
 import Link from "next/link"
 import Like from "../../Components/Icons/Like"
 
@@ -9,6 +12,7 @@ import useUser from "../../hooks/useUser"
 
 export default function Devit({src,message,likes,username,createdAt,imgUrl,id}) {
     const timeago = useTimeAgo(createdAt)
+    const lkk = useNumberBeauty(likes)
     const user = useUser()
     const [lk,setLk] = useState(null)
     const [charging,setCharging] = useState(false)
@@ -51,7 +55,7 @@ export default function Devit({src,message,likes,username,createdAt,imgUrl,id}) 
 
                     </div>
                     <div className="interact">
-                        <button disabled={charging} className={charging?"select-none flex opacity-50":"select-none flex cursor-pointer"} onClick={handleLike}><span className="mr-1 relative top-1 ">{likes}</span><Like width="28" height="28" stroke="#888" fill={lk?"true":"none"}/></button>
+                        <button disabled={charging} className={charging?"select-none flex opacity-50":"select-none flex cursor-pointer"} onClick={handleLike}><span className="mr-1 relative top-1 ">{lkk}</span><Like width="28" height="28" stroke="#888" fill={lk?"true":"none"}/></button>
                         <Like width="28" height="28" stroke="#888" />
                         <Like width="28" height="28" stroke="#888"/>
                     </div>

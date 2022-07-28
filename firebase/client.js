@@ -170,9 +170,9 @@ export const editLikes = async ({id,lk,setLk,uid,likes,setCharging}) => {
     })
     .then(() => {
       setLk(true)
-      setTimeout(() => {
+      
         setCharging(false)
-      },5000)
+      
     })
   }else{
     console.log("restar")
@@ -200,9 +200,9 @@ export const editLikes = async ({id,lk,setLk,uid,likes,setCharging}) => {
     
     .then(() => {
       setLk(false)
-      setTimeout(() => {
+      
         setCharging(false)
-      },5000)
+      
     })
     
   }
