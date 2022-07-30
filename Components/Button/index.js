@@ -5,7 +5,7 @@ export default function button ({children,disabled, onClick}){
                 <button  
                 disabled={disabled}
                 onClick={onClick} 
-                className="mt-5 border-2 border-black">
+                className="border-2 border-black">
                         <span className=" text-black text-sm mx-2 font-bold">{children}</span>
 
                 </button>

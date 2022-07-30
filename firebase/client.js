@@ -27,10 +27,14 @@ export const generateID = () => {
   return id
 }
 
+import * as dotenv from 'dotenv'
+dotenv.config()
 
 
+
+console.log(process.env.API_KEY)  
 const firebaseConfig = {
-  apiKey: "AIzaSyBaF5pa1x1sA_zXr6wUVDMJD5oe7CJouBE",
+  apiKey: process.env.customKey,
   authDomain: "devter-4d602.firebaseapp.com",
   projectId: "devter-4d602",
   storageBucket: "devter-4d602.appspot.com",

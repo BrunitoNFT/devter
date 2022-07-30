@@ -33,10 +33,16 @@ const DRAG_IMAGE_STATES = {
 
 import Avatar from "../../Components/Avatar/index.js"
 
+import { CircularProgressbar,buildStyles  } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
+
+
 export default function ComposeDevit(){
   const [drag,setDrag] = useState(DRAG_IMAGE_STATES.NONE)
   const [task,setTask] = useState(null)
   const [imgUrl,setImgURL] = useState(null)
+
+  const [char, setChar] = useState(0)
 
   const [loadState,setLoadState] = useState(false)
 
@@ -94,6 +100,9 @@ export default function ComposeDevit(){
     uploadImage(file,setImgURL)
   }
   console.log(imgUrl)
+  const [percentage,setPercentage] = useState(66)
+
+  console.log(percentage)
   return(
       <>  
 
@@ -127,6 +136,30 @@ export default function ComposeDevit(){
 
             <section >
                 <form onSubmit={handleSubmit}>
+                  <div className='imp'>
+
+                  
+                    <div className='circular'>
+                          <CircularProgressbar 
+                          value={message.length}
+                          maxValue={255} 
+                          text={`255/${message.length}`} 
+                          styles={buildStyles({
+                            
+                            rotation: 0.25,
+                            strokeLinecap: 'butt',
+                            textSize: '20px',
+                            pathTransitionDuration: 0.5,
+                            pathColor: `${message.length>255?"#A80E0E":"#000"}`,
+                            textColor: `${message.length>255?"#A80E0E":"#000"}`,
+                            trailColor: '#e6e6e6',
+                            backgroundColor: 
+                               '#000'
+                            },
+                          )}
+                          />
+                    </div>
+                      
                     <textarea 
                     onDragEnter={handleDragEnter}
                     onDragLeave={handleDragleave}
@@ -135,7 +168,8 @@ export default function ComposeDevit(){
                     onChange={handleChange}
                     placeholder="What is happening?">
                     </textarea>
-                    
+
+                    </div>
 
                     {imgUrl && 
                     <div className='w-full  rounded-sm mt-3 flex justify-center'>
@@ -146,15 +180,43 @@ export default function ComposeDevit(){
                     </div>
                     
                     }
-                    
-                    <Button
-                    disabled={message.length<1 || loadState}
-                    >Devitear</Button>
+                    <div className='char'>
+
+                        
+                        <Button
+                        disabled={message.length<1 || loadState || message.length>255 }
+                        >Devitear</Button>
+
+                    </div>
                 </form>
             </section>
             
           </>
       <style jsx>{`
+        .imp{
+          display:flex;
+          flex-direction:column;
+          justify-content:center;
+          align-items:center; 
+          position:relative;
+          width:100%;
+        }
+      
+        .circular{
+          width:55px;
+          height:55px;
+          position:absolute;
+          bottom:10px;
+          right:10px;
+        }
+
+        .char{
+          display:flex;
+          justify-content: space-between;
+          align-items:center;
+          margin-top:10px;
+        }
+        
         footer{
           width:55%;
           border-left:2px solid #eee;
@@ -195,7 +257,7 @@ export default function ComposeDevit(){
         resize:none;
         border:${drag===DRAG_IMAGE_STATES.DRAG_OVER?"3px dashed black":"3px solid black"};
         width:100%;
-        height:300px;
+        height:240px;
         background:white;
         border-radius:10px;
         }

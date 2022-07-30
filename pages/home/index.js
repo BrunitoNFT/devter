@@ -128,7 +128,7 @@ export default function Home(){
                     justify-content:space-around;
                     position: absolute;
                     bottom:0;
-                    z-index:100;
+                    z-index:10099;
                 }
                 nav a{
                     transition: all .3s ease-in-out;
